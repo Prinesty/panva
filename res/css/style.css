@@ -4,6 +4,29 @@ body {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
 }
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.3s;
+    visibility: visible;
+}
+[data-title]:after {
+    content: attr(data-title);
+    position: absolute;
+    top: 3rem;
+    left: 20%;
+    padding: 4px;
+    color: #222;
+    white-space: nowrap;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px #222;
+    opacity: 0;
+    z-index: 99999;
+    font-size: 12px;
+    visibility: hidden;
+}
+[data-title] {
+    position: relative;
+}
 * {
   margin: 0;
   padding: 0;
@@ -36,6 +59,9 @@ body {
 a {
   text-decoration: none;
   color: black;
+}
+h1 {
+  font-size: 2.5rem;
 }
 h2 {
   font-size: 2rem;
@@ -129,14 +155,17 @@ ul li:hover .main-drop ul li a {
 }
 ul li:hover .main-drop ul li h3 a:hover {
   background-color: transparent;
-  color: #00c4cc
+  color: #00c4cc;
 }
 ul li:hover .main-drop ul li:first-child a:hover {
   background-color: transparent;
 }
+ul li:hover .main-drop ul li .more:hover {
+  background-color: transparent;
+}
 ul li:hover .main-drop ul li a:hover {
   background-color: rgba(14,19,24,.07);
-  color: black;
+  color: currentColor;
 }
 .drop img {
   height: auto;
@@ -194,19 +223,20 @@ ul li:hover .main-drop ul li a:hover {
 }
 /** Sidebar Menu Ends **/
 
-/** Main Wrapper Styling Starts**/
-.main-wrapper .main-content {
-  width: 80%;
+/** Main Wrapper Styling Starts - Id: Recommend**/
+
+.main-wrapper .recommend {
+  position: relative;
   margin-left: 22%;
   margin-top: 1.5rem;
 }
-.main-content .design-banner {
+.recommend .design-banner {
   width: 100%;
   height: 25rem;
   border-radius: 10px;
   animation: design 60s ease-in-out infinite;
 }
-.main-content .design-banner .outer {
+.recommend .design-banner .outer {
   height: 100%;
   width: 100%;
   background-color: rgba(0,0,0,0.5);
@@ -231,19 +261,25 @@ ul li:hover .main-drop ul li a:hover {
 }
 .design-search {
   position: absolute;
-  top: 5%;
-  left: 45%;
-  transform: rotate(-45%, -5%);
+  top: 3%;
+  left: 30%;
+  transform: rotate(-30%, -3%);
   text-align: center;
   color: white;
 }
 .design-search h1 {
   font-size: 4rem;
   font-weight: bold;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 .design-search h3 {
   font-weight: 500;
+}
+.design-search h3::before {
+  content: open-quote;
+}
+.design-search h3::after {
+  content: close-quote;
 }
 .design-search .input {
   border: 0;
@@ -252,15 +288,13 @@ ul li:hover .main-drop ul li a:hover {
 	height: 100%;
 	padding: 10px 40px;
 	border-radius: 5px;
-	font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 .design-search .btn {
   position: absolute;
-  top: 8rem;
+  top: 6.2rem;
   left: 1rem;
   color: black;
-  font-size: 1.5rem;
 }
 .create-design {
   margin: 2.5rem 0;
@@ -285,4 +319,36 @@ ul li:hover .main-drop ul li a:hover {
 .common-design a {
   margin: 1rem 1rem 1rem 0;
 }
-/** Main wrapper Styling Ends**/
+/** Main wrapper Styling Ends - Id Recoomend**/
+
+
+/** Main Wrapper Styling Starts - Id: Brand**/
+.main-wrapper .brand {
+  position: relative;
+  margin-left: 22%;
+  margin-top: 1.5rem;
+}
+.brand .upgrade {
+  margin: 2rem 0;
+  background-color: rgba(14,19,24,.07);
+  padding: 2rem 50rem 2rem 2rem;
+  border-radius: 5px;
+}
+.brand .upgrade h2 {
+  margin-bottom: 2rem;
+}
+.brand .upgrade p {
+  padding: 1rem 0;
+}
+.brand .upgrade .fas {
+  color: #00c4cc;
+  margin-right: 0.5rem;
+}
+.move-img {
+  position: absolute;
+  right: 20%;
+  top: 20%;
+  transform: rotate(-20%, -20%);
+}
+
+/** Main wrapper Styling Ends - Id: Brand**/
